@@ -42,6 +42,13 @@ class ControllerExtensionModuleUpdateprice extends Controller {
             'href' => $this->url->link('extension/module/updateprice', 'token=' . $this->session->data['token'], true)
         );
 
+        $filename = 'D:\OpenServer\OpenServer\open_cart\localhost\admin\controller\extension\module\test.txt';
+        $handler = fopen($filename, 'r');
+        $content = fread($handler, filesize($filename));
+        fclose($handler);
+
+        print $content;
+
         //загружаем в массив data элементы страницы и передаем во view
         $data['header'] = $this->load->controller('common/header');
         $data['column_left'] = $this->load->controller('common/column_left');
