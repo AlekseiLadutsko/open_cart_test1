@@ -3,10 +3,13 @@ class ControllerExtensionModuleUpdateprice extends Controller {
     public function index() {
         $this->load->language('extension/module/updateprice');
 
-        //$this->document->setTitle($this->language->get('heading_title'));
+        //установка title
+        $this->document->setTitle($this->language->get('heading_title'));
 
+        //загрузка модели
         $this->load->model('setting/setting');
 
+        //получаем текст в зависимости от языка
         $data['heading_title'] = $this->language->get('heading_title');
 
         $data['text_edit'] = $this->language->get('text_edit');
@@ -21,7 +24,7 @@ class ControllerExtensionModuleUpdateprice extends Controller {
         $data['button_save'] = $this->language->get('button_save');
         $data['button_cancel'] = $this->language->get('button_cancel');
 
-
+        //создаем массив для хлебных крошек и получаем данные
         $data['breadcrumbs'] = array();
 
         $data['breadcrumbs'][] = array(
@@ -39,13 +42,7 @@ class ControllerExtensionModuleUpdateprice extends Controller {
             'href' => $this->url->link('extension/module/updateprice', 'token=' . $this->session->data['token'], true)
         );
 
-
-
-
-
-
-
-
+        //загружаем в массив data элементы страницы и передаем во view
         $data['header'] = $this->load->controller('common/header');
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['footer'] = $this->load->controller('common/footer');
