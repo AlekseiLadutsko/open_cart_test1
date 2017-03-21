@@ -47,10 +47,33 @@ class ControllerExtensionModuleUpdateprice extends Controller {
         //$content = fread($handler, filesize($filename));
         while(!feof($handler)){
             $content = fgets($handler, filesize($filename));
-            print $content;
+            if(empty($content)) continue;
+            if(strpos($content, 'article') !== FALSE) continue;
+            $productData = explode(';', $content);
+            printf('<p>Товар %s с ценой %d в остатке %d', $productData[0], $productData[1], $productData[2]);
+            //print $content;
+            $products[] = $productData;
         }
         fclose($handler);
         //print $content;
+        echo '<pre>';
+        var_export($products);
+
+        foreach ($products as $k => $p){
+            $line = implode(';', $p);
+            if($k < count($products)-1){
+                $line = $line .PHP_EOL;
+            }
+            fwrite($handler, $line);
+        }
+
+        $filter_data = array(
+            'sort' => 'name',
+            'order' => 'ASC'
+        );
+
+        $this->load->model('catalog/product');
+        $results = $this->model_catalog_product->getProducts($filter_data);
 
         //загружаем в массив data элементы страницы и передаем во view
         $data['header'] = $this->load->controller('common/header');
