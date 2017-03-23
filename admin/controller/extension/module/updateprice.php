@@ -42,30 +42,27 @@ class ControllerExtensionModuleUpdateprice extends Controller {
             'href' => $this->url->link('extension/module/updateprice', 'token=' . $this->session->data['token'], true)
         );
 
-        $filename = 'D:\OpenServer\OpenServer\open_cart\localhost\admin\controller\extension\module\products.csv';
+        /* ЧТЕНИЕ ИХ CSV ФАЙЛА
+        $filename = 'C:\OpenServer\open_cart\localhost\admin\controller\extension\module\products.csv';
         $handler = fopen($filename, 'r');
-        //$content = fread($handler, filesize($filename));
         while(!feof($handler)){
-            $content = fgets($handler, filesize($filename));
-            if(empty($content)) continue;
-            if(strpos($content, 'article') !== FALSE) continue;
-            $productData = explode(';', $content);
-            printf('<p>Товар %s с ценой %d в остатке %d', $productData[0], $productData[1], $productData[2]);
-            //print $content;
+            $productData = fgetcsv($handler,0,';');
+            if (empty($productData[0])) continue;
+            if (strpos($productData[0], 'article') !== FALSE) continue;
+            printf('<p>Товар %s с ценой %d в остаке %d</p>'
+                , $productData[0]
+                , $productData[1]
+                , $productData[2]
+            );
             $products[] = $productData;
         }
         fclose($handler);
-        //print $content;
-        echo '<pre>';
-        var_export($products);
 
-        foreach ($products as $k => $p){
-            $line = implode(';', $p);
-            if($k < count($products)-1){
-                $line = $line .PHP_EOL;
-            }
-            fwrite($handler, $line);
-        }
+        echo '<pre>';
+        var_export($products); exit;*/
+        $dir = getcwd();
+        $filename = $dir.'\controller\extension\module\products.csv';
+        $handler = fopen($filename, 'w+');
 
         $filter_data = array(
             'sort' => 'name',
@@ -73,7 +70,23 @@ class ControllerExtensionModuleUpdateprice extends Controller {
         );
 
         $this->load->model('catalog/product');
-        $results = $this->model_catalog_product->getProducts($filter_data);
+        $products = $this->model_catalog_product->getProducts($filter_data);
+        fwrite($handler, 'product_id;quantity;price'.PHP_EOL);
+        for($i = 0; $i < count($products); $i++){
+            foreach ($products[$i] as $k => $p){
+                if ($k == 'product_id') {
+                    $line = $p.";";
+                } elseif ($k == 'quantity') {
+                    $line = $p.";";
+                } elseif ($k == 'price') {
+                    $line = $p . PHP_EOL;
+                } else {
+                    continue;
+                }
+                fwrite($handler, $line);
+            }
+        }
+        fclose($handler); exit;
 
         //загружаем в массив data элементы страницы и передаем во view
         $data['header'] = $this->load->controller('common/header');
