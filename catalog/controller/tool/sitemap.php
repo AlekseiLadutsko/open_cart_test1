@@ -25,7 +25,6 @@ class ControllerToolSitemap extends Controller{
             <changefreq>monthly</changefreq>
             <priority>0.8</priority>
              */
-
             $url->appendChild($location);
             $lastmod = $doc->createElement('lastmod', date('d m Y', time()));
             $url->appendChild($lastmod);
