@@ -1,6 +1,13 @@
 <?php
 class ControllerExtensionModuleUpdateprice extends Controller {
     public function index() {
+        /*$dir = getcwd();
+        $file = $dir.'\controller\extension\module\products.csv';
+        $current = file_get_contents($file);
+        $current .= "Hello World; Hi\n";
+        file_put_contents($file, $current);
+
+        exit;*/
         $this->load->language('extension/module/updateprice');
 
         //установка title
@@ -62,7 +69,7 @@ class ControllerExtensionModuleUpdateprice extends Controller {
         var_export($products); exit;*/
         $dir = getcwd();
         $filename = $dir.'\controller\extension\module\products.csv';
-        $handler = fopen($filename, 'w+');
+        //$handler = fopen($filename, 'w+');
 
         $filter_data = array(
             'sort' => 'name',
@@ -71,7 +78,10 @@ class ControllerExtensionModuleUpdateprice extends Controller {
 
         $this->load->model('catalog/product');
         $products = $this->model_catalog_product->getProducts($filter_data);
-        fwrite($handler, 'product_id;quantity;price'.PHP_EOL);
+        echo '<pre>';
+        var_export($products);
+        //fwrite($handler, 'product_id;quantity;price'.PHP_EOL);
+        $current = file_get_contents($filename);
         for($i = 0; $i < count($products); $i++){
             foreach ($products[$i] as $k => $p){
                 if ($k == 'product_id') {
@@ -83,9 +93,11 @@ class ControllerExtensionModuleUpdateprice extends Controller {
                 } else {
                     continue;
                 }
-                fwrite($handler, $line);
+                $line = mb_convert_encoding($line, 'cp1251');
+                $current .= $line;
             }
         }
+        file_put_contents($filename, $current);
         fclose($handler); exit;
 
         //загружаем в массив data элементы страницы и передаем во view
