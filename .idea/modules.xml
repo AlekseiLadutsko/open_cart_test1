@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/localhost.iml" filepath="$PROJECT_DIR$/.idea/localhost.iml" />
-      <module fileurl="file://$PROJECT_DIR$/open_cart_class/.idea/open_cart_class.iml" filepath="$PROJECT_DIR$/open_cart_class/.idea/open_cart_class.iml" />
+      <module fileurl="file://D:\OpenServer\OpenServer\open_cart\localhost\open_cart_class\.idea\open_cart_class.iml" filepath="D:\OpenServer\OpenServer\open_cart\localhost\open_cart_class\.idea\open_cart_class.iml" />
     </modules>
   </component>
 </project>
