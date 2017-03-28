@@ -294,6 +294,7 @@
               <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
               <br />
               <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block"><?php echo $button_cart; ?></button>
+              <button type="button" id="button-1click" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-default btn-lg btn-block">Купить в один клик</button>
             </div>
             <?php if ($minimum > 1) { ?>
             <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
@@ -414,6 +415,13 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 });
 //--></script>
 <script type="text/javascript"><!--
+$(document).on('click', '#button-1click', function() {
+    $.post("index.php?route=product/product/process1Click", function (data) {
+        if(data.hasOwnProperty('success') && data.success == true){
+            console.log('success');
+        }
+    })
+});
 $('#button-cart').on('click', function() {
 	$.ajax({
 		url: 'index.php?route=checkout/cart/add',
