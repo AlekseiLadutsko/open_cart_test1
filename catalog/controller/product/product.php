@@ -707,12 +707,4 @@ class ControllerProductProduct extends Controller {
 		$this->response->setOutput(json_encode($json));
 
 	}
-
-    public function process1Click(){
-        $result['success'] = true;
-        $result['message'] = 'Ваша заявка успешно отправлена';
-        mail('l.aleksei.minsk@gmail.com', 'Тест mail', 'Привет');
-        $this->response->addHeader('Content-Type: application/json');
-        $this->response->setOutput(json_encode($result));
-    }
 }
