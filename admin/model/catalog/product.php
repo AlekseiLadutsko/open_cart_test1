@@ -532,7 +532,8 @@ class ModelCatalogProduct extends Model {
 					'points'                  => $product_option_value['points'],
 					'points_prefix'           => $product_option_value['points_prefix'],
 					'weight'                  => $product_option_value['weight'],
-					'weight_prefix'           => $product_option_value['weight_prefix']
+					'weight_prefix'           => $product_option_value['weight_prefix'],
+                    'note'                    => $product_option_value['note']
 				);
 			}
 

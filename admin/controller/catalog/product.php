@@ -1208,7 +1208,7 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$product_options = array();
 		}
-
+        print_r($product_options); exit;
 		$data['product_options'] = array();
 
 		foreach ($product_options as $product_option) {
