@@ -1,0 +1,53 @@
+﻿<div class="b-attrs columns__nowrap">
+															<div class="attr__header">Основные характеристики</div>
+															<div class="attr_item">
+																<span class="attr__name">
+																	<span class="attr__about b-source_tooltip j-tooltip-byclick cr-source_tooltip-right" data-title="По типу стиральные машины бывают автоматическими и полуавтоматическими.
+<br><br>Полуавтоматические стиральные машины оснащены механизмом стирки, а иногда и отжима, а также таймером, определяющим длительность процесса стирки или отжима. <br><br>Хотя такие машины предусматривают использование ручного управления, они обладают рядом преимуществ: небольшие габариты, легкая транспортировка, удобство использования в качестве дополнительной машины. <br><br>Автоматические стиральные машины – это современные машины с высокой степенью автоматизации. Они обладают множеством функций и набором автоматических программ, не требующих ручной корректировки. <br><br>Стирально-сушильные машины, в виду сложного внутреннего устройства, бывают только автоматическими."></span>																	Тип																</span>
+																<span class="attr__value">автоматическая</span>
+															</div>
+																												<div class="attr_item">
+																<span class="attr__name">
+																																		Установка																</span>
+																<span class="attr__value">отдельно стоящая</span>
+															</div>
+																												<div class="attr_item">
+																<span class="attr__name">
+																	<span class="attr__about b-source_tooltip j-tooltip-byclick cr-source_tooltip-right" data-title="Режим сушки равномерно и быстро обрабатывает белье потоком подогретого воздуха, при этом температуру воздуха следует выбирать в зависимости от типа ткани."></span>																	Сушка																</span>
+																<span class="attr__value">нет</span>
+															</div>
+																												<div class="attr_item">
+																<span class="attr__name">
+																	<span class="attr__about b-source_tooltip j-tooltip-byclick cr-source_tooltip-right" data-title="Показатель качества стирки – эффективность удаления загрязнений с ткани. Наилучшее качество стирки обеспечивает класс &quot;A&quot; и &quot;B&quot;."></span>																	Класс стирки																</span>
+																<span class="attr__value">A</span>
+															</div>
+																												<div class="attr_item">
+																<span class="attr__name">
+																	<span class="attr__about b-source_tooltip j-tooltip-byclick cr-source_tooltip-right" data-title="Максимальная загрузка показывает, сколько сухого белья можно загрузить в машинку. Измеряется в килограммах."></span>																	Максимальная загрузка																</span>
+																<span class="attr__value">6&nbsp;кг</span>
+															</div>
+																												<div class="attr_item">
+																<span class="attr__name">
+																																		Прямой привод																</span>
+																<span class="attr__value">есть</span>
+															</div>
+																												<div class="attr_item">
+																<span class="attr__name">
+																	<span class="attr__about b-source_tooltip j-tooltip-byclick cr-source_tooltip-right" data-title="Фронтальная загрузка белья осуществляется через круглый люк, который расположен спереди."></span>																	Способ загрузки белья																</span>
+																<span class="attr__value">фронтальный</span>
+															</div>
+																												<div class="attr_item">
+																<span class="attr__name">
+																																		Открытие люка на 180 градусов																</span>
+																<span class="attr__value">есть</span>
+															</div>
+																												<div class="attr_item">
+																<span class="attr__name">
+																																		Диаметр люка																</span>
+																<span class="attr__value">30&nbsp;см</span>
+															</div>
+																												<div class="attr_item">
+																<span class="attr__name">
+																																		Цвет																</span>
+																<span class="attr__value">белый</span>
+															</div>														</div>

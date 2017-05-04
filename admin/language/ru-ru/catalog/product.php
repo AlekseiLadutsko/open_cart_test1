@@ -45,6 +45,7 @@ $_['entry_location']          	= 'Расположение:';
 $_['entry_shipping']          	= 'Необходима доставка:';
 $_['entry_manufacturer']        = 'Производитель:';
 $_['entry_store']          		= 'Магазины:';
+$_['entry_note']          	    = 'Примечание:';
 $_['entry_date_available']      = 'Дата поступления:';
 $_['entry_quantity']          	= 'Количество:';
 $_['entry_minimum']          	= 'Минимальное количество:';
