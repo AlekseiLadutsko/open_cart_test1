@@ -1,5 +1,22 @@
 <?php
 class ModelCatalogProduct extends Model {
+    public function changePriceForDiscountedGroup($price){
+        $new_price = $price;
+        print_r("%d", $this->customer->getGroupId()); exit;
+            if($group_id > 0){
+                $result = "
+                    SELECT s1.`value` FROM `".DB_PREFIX."_setting` AS s1
+                    INNER JOIN `".DB_PREFIX."_setting` AS s2 
+                    ON s1.`key`='customergroupdiscount_discount' AND s2.`key`='customergroupdiscount_groupid' AND s2.`value` = ".$group_id;
+            }
+            $row = $this->db->query($sql);
+            if($result->num_rows){
+                $discount = (int)$result->row['value'];
+                $new_price = (100-$discount)*$price/100;
+            }
+        return $new_price;
+    }
+
 	public function updateViewed($product_id) {
 		$this->db->query("UPDATE " . DB_PREFIX . "product SET viewed = (viewed + 1) WHERE product_id = '" . (int)$product_id . "'");
 	}

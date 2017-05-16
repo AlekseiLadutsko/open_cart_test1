@@ -702,7 +702,6 @@ class ControllerProductProduct extends Controller {
 				$json['success'] = $text;
 			}
 		}
-
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 

@@ -3,6 +3,10 @@ class ControllerExtensionModuleCustomerGroupDiscount extends Controller{
     private $error = array();
 
     public function index() {
+        $this->load->model('product/customer_group');
+        $data['customer_groups'] = $this->model_customer_customer_group->getCustomerGroups();
+        exit;
+
         $this->load->language('extension/module/customergroupdiscount');
 
         $this->document->setTitle($this->language->get('heading_title'));
@@ -92,5 +96,22 @@ class ControllerExtensionModuleCustomerGroupDiscount extends Controller{
         }
 
         return !$this->error;
+    }
+
+    public function changePriceForDiscountedGroup($price){
+        $new_price = $price;
+        print_r("%d", $this->customer->getGroupId()); exit;
+        if($group_id > 0){
+            $result = "
+                    SELECT s1.`value` FROM `".DB_PREFIX."_setting` AS s1
+                    INNER JOIN `".DB_PREFIX."_setting` AS s2 
+                    ON s1.`key`='customergroupdiscount_discount' AND s2.`key`='customergroupdiscount_groupid' AND s2.`value` = ".$group_id;
+        }
+        $row = $this->db->query($sql);
+        if($result->num_rows){
+            $discount = (int)$result->row['value'];
+            $new_price = (100-$discount)*$price/100;
+        }
+        return $new_price;
     }
 }

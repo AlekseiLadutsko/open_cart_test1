@@ -43,7 +43,7 @@
                             <select name="customergroupdiscount_groupid" id="customergroupdiscount_group" class="form-control">
                                 <?php foreach ($customer_groups as $group) { ?>
                                     <option
-                                            <?php if($customergroupdiscount_groupid === $group['customer_group_id']) echo selected="selected";?>
+                                            <?php if($customergroupdiscount_groupid === $group['customer_group_id']) echo "selected='selected'";?>
                                             value="<?php echo $group['customer_group_id']; ?>"><?php echo $group['name']; ?>
                                     </option>
                                 <?php } ?>
@@ -51,9 +51,12 @@
                         </div>
                         <label class="col-sm-2 control-label" for="customergroupdiscount_discount"><?php echo $sale_count; ?></label>
                         <div class="col-sm-10">
-                            <input type="text" name="customergroupdiscount_discount" placeholder="<?php echo $sale_count; ?>" id="customergroupdiscount_discount" class="form-control" />
+                            <input type="text" name="customergroupdiscount_discount" placeholder="<?php echo $sale_count; ?>" id="customergroupdiscount_discount" class="form-control" value = "<?php echo $customergroupdiscount_discount; ?>" />
                         </div>
-
+                        <div class="pull-right">
+                            <br/>
+                            <button type="button" title="Применить" class="btn btn-primary" id = "changePriceForDiscountedGroup">Применить</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -61,3 +64,7 @@
     </div>
 </div>
 <?php echo $footer; ?>
+
+<script type="text/javascript">
+        $('#changePriceForDiscountedGroup').load('index.php?route=product/product/');
+</script>
